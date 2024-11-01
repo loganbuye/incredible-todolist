@@ -2,8 +2,7 @@ import { StyleSheet, Text, View } from "react-native";
 import ToDoForm from "../components/ToDoForm";
 import ToDoList from "../components/ToDoList";
 
-export default function Page() 
-{
+export default function Page() {
   return (
     <View style={styles.container}>
       <View style={styles.main}>

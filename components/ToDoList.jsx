@@ -9,6 +9,23 @@ import {
 } from "react-native";
 
 const ToDoList = () => {
+
+  function ToDoList({ tasks }) {
+    return (
+      <SafeAreaView>
+        <ScrollView>
+          {tasks.map((task, index) => (
+            <Pressable key={index}>
+              <View>
+                <Text>{task}</Text>
+              </View>
+            </Pressable>
+          ))}
+        </ScrollView>
+      </SafeAreaView>
+    );
+  }
+
   return (
     <SafeAreaView>
       <ScrollView>
