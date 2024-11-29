@@ -1,13 +1,25 @@
 import { StyleSheet, Text, View } from "react-native";
+import React, { useState } from "react";
 import ToDoForm from "../components/ToDoForm";
 import ToDoList from "../components/ToDoList";
 
 export default function Page() {
+
+  const [tasks, setTasks] = useState([
+    "Do laundry",
+    "Go to gym",
+    "Walk dog"
+  ]);
+
+  const addTask = (taskText) => {
+    setTasks([...tasks, taskText]);
+  };
+
   return (
     <View style={styles.container}>
       <View style={styles.main}>
-        <ToDoList />
-        <ToDoForm />
+        <ToDoList tasks={tasks}/>
+        <ToDoForm addTask={addTask}/>
       </View>
     </View>
   );
