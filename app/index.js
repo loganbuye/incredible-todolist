@@ -1,9 +1,13 @@
 import { StyleSheet, Text, View } from "react-native";
 import React, { useState } from "react";
-import ToDoForm from "../components/ToDoForm";
-import ToDoList from "../components/ToDoList";
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+import HomeScreen from "./screens/HomeScreen";
+import AboutScreen from "./screens/AboutScreen";
 
 export default function Page() {
+
+  const Stack = createStackNavigator();
 
   const [tasks, setTasks] = useState([
     "Do laundry",
@@ -16,12 +20,12 @@ export default function Page() {
   };
 
   return (
-    <View style={styles.container}>
-      <View style={styles.main}>
-        <ToDoList tasks={tasks}/>
-        <ToDoForm addTask={addTask}/>
-      </View>
-    </View>
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen name="Home" component={HomeScreen} />
+        <Stack.Screen name="About" component={AboutScreen} />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
 
